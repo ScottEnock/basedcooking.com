@@ -36,5 +36,7 @@ jobs:
       - name: push to repo
         run: |
           cd main
+          git config --global user.name 'ScottEnock'
+          git config --global user.email '27223098+ScottEnock@users.noreply.github.com'
           git commit -am "parity"
           git push
