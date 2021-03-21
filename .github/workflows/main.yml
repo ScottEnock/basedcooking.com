@@ -35,5 +35,6 @@ jobs:
           ls main/src/based.cooking
       - name: push to repo
         run: |
+          cd main
           git commit -am "parity"
           git push
