@@ -15,24 +15,25 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   clone-and-copy:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v2
         with:
           path: main
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout based.cooking
+        uses: actions/checkout@v2
         with: 
           repository: LukeSmithxyz/based.cooking
           path: based.cooking
-      - name: copy files
+      - name: transfer files
         run: |
-          mkdir -p main/src/based.cooking/picx && mkdir -p main/src/based.cooking/markdown
+          mkdir -p main/src/based.cooking/pix && mkdir -p main/src/based.cooking/markdown
           cp -r based.cooking/data/pix main/src/based.cooking/pix
           cp -r based.cooking/src main/src/based.cooking/markdown
           ls main/src/based.cooking
+      - name: push to repo
+        run: |
+          git commit -am "parity"
+          git push
