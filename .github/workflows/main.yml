@@ -27,8 +27,8 @@ jobs:
       - name: transfer files
         run: |
           mkdir -p main/src/based.cooking/pix && mkdir -p main/src/based.cooking/markdown
-          cp -r based.cooking/data/pix main/src/based.cooking/pix
-          cp -r based.cooking/src main/src/based.cooking/markdown
+          cp -r based.cooking/data/pix/ main/src/based.cooking/pix
+          cp -r based.cooking/src/ main/src/based.cooking/markdown
           ls main/src/based.cooking
       - name: push to repo
         run: |
